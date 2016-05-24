@@ -1,0 +1,8 @@
+title: Data Visualization
+slug: demo-kendo-ui-professional
+publish: true
+page_title: Kendo UI Professional & Data Visualization | Apache Cordova Sample | Telerik Platform
+description: This demo application shows how to use Telerik AppBuilder and the mobile and data visualization widgets of Kendo UI Professional to develop a hybrid mobile app with rich HTML5-based data visualization. The app provides a pie chart, a stock chart, a gauge and a QR code generator.
+tags: Kendo UI, Kendo UI Professional, Kendo UI DataViz, data visualization, demo, DataSource, RadialGauge, Chart, QRCode, StockChart, iOS, Android, Windows Phone, Apache Cordova, hybrid development, JavaScript
+content_filter: true
+apis: kendo.application kendo.radialGauge kendo.chart kendo.qrCode kendo.stockChart kendo.datasource cordova.splashscreen
