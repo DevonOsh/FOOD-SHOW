@@ -1,6 +1,6 @@
-(function (global, $) {
+(function (fsr, $) {
     var stockChart = null,
-        app = global.app = global.app || {};
+        app = fsr.app = fsr.app || {};
 
     app.stockChart = {
         createStockChart: function () {
@@ -23,7 +23,7 @@
             jsonUrlToLoad = "data/boeing-stock.json";
 
             $stockChart.kendoStockChart({
-                theme: global.app.chartsTheme,
+                theme: fsr.app.chartsTheme,
                 renderAs: "svg",
                 transitions: false,
                 dataSource: {
