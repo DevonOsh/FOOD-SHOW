@@ -1,6 +1,6 @@
-(function (global, $) {
+(function (fsr, $) {
     var pieChart = null,
-        app = global.app = global.app || {};
+        app = fsr.app = fsr.app || {};
 
 
     app.pieChart = {
@@ -19,7 +19,7 @@
             $pieChart = $("#pie-chart").empty();
 
             pieChart = $pieChart.kendoChart({
-                theme: global.app.chartsTheme,
+                theme: fsr.app.chartsTheme,
                 renderAs: "svg",
                 transitions: false,
                 title: {

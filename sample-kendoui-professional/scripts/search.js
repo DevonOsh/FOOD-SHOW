@@ -1,38 +1,44 @@
-(function (global, $) {
-    var $gauge,
-        $gaugeSlider,
-        gauge = null,
-        value = 50,
-        app = global.app = global.app || {};
+/// <reference path="~/kendo/js/kendo.all.min.intellisense.js"/>
 
-    app.gauge = {
-        createGauge: function () {
-            if (gauge !== null) {
-                gauge.destroy();
-            }
+(function (fsr, $) {
+    var $autocomplete,
+        autocomplete,
+        search = null,
+        //$gaugeSlider,
+        app = fsr.app = fsr.app || {};
 
-            $gauge = $("#gauge").empty();
-            $gaugeSlider = $("#gauge-value");
-
-            app.gauge.drawGauge();
-            app.gauge.bindResizeEvent();
-
-            $gaugeSlider.attr({
-                max: 180,
-                min: 0,
-                value: value
+    app.search = {
+        onShow: function () {
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "data/customer.json",
+                        dataType: "json"
+                    }
+                }
             });
+            $autocomplete = $("#autocomplete");
 
-            $gaugeSlider.on("change", function () {
-                value = $gaugeSlider.val();
-                gauge.value(value);
-
+            $autocomplete.kendoAutoComplete({
+                placeholder: "Enter company name",
+                dataSource: {
+                    dataSource: dataSource,
+                    dataTextField: "Name"
+                },
+                filter: "startswith",
+                popup: {
+                    appendTo: $("#container")
+                },
             });
         },
+        onHide: function () {
 
+        }
+
+        /*
         drawGauge: function () {
             gauge = $gauge.kendoRadialGauge({
-                theme: global.app.chartsTheme,
+                theme: fsr.app.chartsTheme,
                 renderAs: "svg",
                 transitions: false,
                 pointer: {
@@ -79,6 +85,6 @@
         unbindResizeEvent: function () {
             //unbind the "resize event" to prevent redundant calculations when the tab is not active
             $(window).off("resize.gauge");
-        }
+        } */
     };
 })(window, jQuery);

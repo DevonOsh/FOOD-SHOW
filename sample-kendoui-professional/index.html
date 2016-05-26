@@ -1,81 +1,94 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Kendo UI DataViz</title>
+    <title>Check-In</title>
     <meta charset="UTF-8" />
 
     <link href="kendo/styles/kendo.dataviz.mobile.min.css" rel="stylesheet" />
-
-    <!-- Once the final theme is chosen the redundant css reference should removed -->
     <link href="kendo/styles/kendo.dataviz.flat.min.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.dataviz.silver.min.css" rel="stylesheet" />
 
     <link href="styles/main.css" rel="stylesheet" />
+    <link href="styles/normalize.css" rel="stylesheet"/>
+    <link href="styles/skeleton.css" rel="stylesheet"/>
 
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.dataviz.mobile.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/pie-chart.js"></script>
-    <script src="scripts/gauge.js"></script>
+    <script src="scripts/search.js"></script>
     <script src="scripts/qr-code.js"></script>
     <script src="scripts/stock-chart.js"></script>
 </head>
 
 <body>
-    <!-- Pie Chart View -->
-    <div id="tabstrip-pie-chart"
+    <!-- Home View -->
+    <div id="tabstrip-home"
         data-role="view"
-        data-title="Pie Chart"
+        data-title="Check-In"
         data-show="app.pieChart.createPieChart"
         data-hide="app.pieChart.unbindResizeEvent"
         data-stretch="true">
 
-        <div id="pie-chart"></div>
-    </div>
-
-    <!-- Gauge View -->
-    <div id="tabstrip-gauge"
-        data-role="view"
-        data-title="Gauge"
-        data-show="app.gauge.createGauge"
-        data-hide="app.gauge.unbindResizeEvent">
-
-        <div>
-            <div id="gauge"></div>
-            <div class="w-tools">
-                <input id="gauge-value" type="range">
-            </div>
+        <div id="check-in">
+            <label for="cust-num">Customer Number:</label>
+            <input type="text" id="cust-num"/>
+            <button>Enter</button>
+            <button>Search by company name</button>
         </div>
     </div>
 
-    <!-- QR Code View -->
-    <div id="tabstrip-qrcode"
+    <!-- Search View -->
+    <div id="tabstrip-search"
         data-role="view"
-        data-title="QR Code"
-        data-show="app.qrcode.createQRCode">
+        data-title="Search"
+        data-show="app.search.onShow"
+        data-hide="app.search.onHide">
 
-        <div>
-            <div id="qrcode"></div>
-            <div class="w-tools">
-                <form onsubmit="return false;">
-                    <input id="qrcode-value" type="text" value="http://www.telerik.com/appbuilder">
-                    <input id="qrcode-generate" type="submit" data-role="button" value="Update QR" />
-                </form>
-            </div>
+        <div id="container">
+            <input id="autocomplete"/>
         </div>
     </div>
 
-    <!-- Stock Chart View -->
-    <div id="tabstrip-stock-chart"
+    <!-- Customer Info View-->
+    <div id="tabstrip-cust-info"
         data-role="view"
-        data-title="Stock Chart"
+        data-title="Customer Info"
+        data-show="app.custInfo.onShow">
+
+        <div id="info">
+            <h3>Customer Info</h3>
+            <div id="cust-info">
+                <div id="listView"></div>
+                <script type="text/x-kendo-template" id="template">
+                    <div class="customer">
+                        <h3>#:kendo.toString(Cust_Num)#</h3>
+                        <h3>#:Name#</h3>
+                        <h3>#:kendo.toString(Sales)#</h3>
+                    </div>
+                </script>
+            </div>
+            <button class="u-full-width">Check-In</button>
+        </div>
+    </div>
+
+    <!-- Registered -->
+    <div id="tabstrip-registered"
+        data-role="view"
+        data-title="Registered"
         data-show="app.stockChart.createStockChart"
         data-hide="app.stockChart.unbindResizeEvent"
         data-stretch="true">
 
-        <div id="stock-chart"></div>
+        <div id="registered">
+            <h2>Customer Registered</h2>
+            <button>Print</button>
+            <button>OK</button>
+        </div>
+
     </div>
 
     <!--Layout-->
@@ -84,17 +97,16 @@
         <div data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
-                <a data-align="right" data-role="button" data-click="app.changeSkin">Flat</a>
             </div>
         </div>
 
         <!--Footer-->
         <div data-role="footer">
             <div data-role="tabstrip">
-                <a href="#/" data-icon="globe">Pie Chart</a>
-                <a href="#tabstrip-gauge" data-icon="recents">Gauge</a>
-                <a href="#tabstrip-qrcode" data-icon="camera">QR Code</a>
-                <a href="#tabstrip-stock-chart" data-icon="featured">Stock Chart</a>
+                <a href="#/" data-icon="globe">Home</a>
+                <a href="#tabstrip-search" data-icon="recents">Search</a>
+                <a href="#tabstrip-cust-info" data-icon="camera">Customer Info</a>
+                <a href="#tabstrip-registered" data-icon="featured">Registered</a>
             </div>
         </div>
     </div>

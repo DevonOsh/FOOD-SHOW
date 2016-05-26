@@ -1,0 +1,52 @@
+[
+  {
+    "Cust_Num": 4999,
+    "Name": "Imaginart",
+    "Sales": 946
+  },
+  {
+    "Cust_Num": 2969,
+    "Name": "Brainquil",
+    "Sales": 773
+  },
+  {
+    "Cust_Num": 2373,
+    "Name": "Sonique",
+    "Sales": 499
+  },
+  {
+    "Cust_Num": 6232,
+    "Name": "Sportan",
+    "Sales": 848
+  },
+  {
+    "Cust_Num": 2932,
+    "Name": "Zillanet",
+    "Sales": 705
+  },
+  {
+    "Cust_Num": 9283,
+    "Name": "Pushcart",
+    "Sales": 610
+  },
+  {
+    "Cust_Num": 4730,
+    "Name": "Quantasis",
+    "Sales": 583
+  },
+  {
+    "Cust_Num": 6063,
+    "Name": "Combogen",
+    "Sales": 125
+  },
+  {
+    "Cust_Num": 9605,
+    "Name": "Ezentia",
+    "Sales": 186
+  },
+  {
+    "Cust_Num": 9510,
+    "Name": "Extragen",
+    "Sales": 966
+  }
+]
