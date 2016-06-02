@@ -1,3 +1,5 @@
+///<reference path="~/kendo/js/jquery.min.js"/>
+///<reference path="~/kendo/js/kendo.all.min.js"/>
 (function (fsr, $) {
     var pieChart = null,
         app = fsr.app = fsr.app || {};
