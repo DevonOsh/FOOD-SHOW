@@ -9,25 +9,34 @@
         onShow: function () {
             var customerData = app.dataSource;
 
-            $("#name-autocomplete").kendoAutoComplete({
+            $("#search_name-input").kendoAutoComplete({
                 dataSource: customerData,
                 select: function(e){
                     var dataItem = this.dataItem(e.item.index());
                     isRegistered = dataItem.Registered;
                 },
+                filtering: function(e) {
+                    var filter = e.filter;
+                    if(!filter.value) {
+                        e.preventDefault();
+                    }
+                },
                 placeholder: "Enter company name",
                 dataTextField: "Name",
-                minLength: 1
+                template: 	'<div class="dropdown-content">' + 
+                				'<span><p>#:Cust_Num#</p></span>' +
+                				'<span><p>#:Name#</p></span>' +
+                			'</div>'
             });
             
-            $("#name-button").kendoButton({
-                click: app.search.onClick
+            $("#search_name-btn").kendoButton({
+                click: function() {
+                    app.registeredAction(isRegistered);
+                }
             });
            
         },
-        onClick: function (e) {
-            app.registeredAction(isRegistered);
-        },
+
         onHide: function () {
             //some code to hide the view. close and reload for now
         }
