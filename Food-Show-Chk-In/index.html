@@ -6,7 +6,7 @@
 
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet"/>
     <link href="kendo/styles/kendo.dataviz.mobile.min.css" rel="stylesheet" />
-    <!--<link href="kendo/styles/kendo.dataviz.flat.min.css" rel="stylesheet" />-->
+    <link href="kendo/styles/kendo.dataviz.flat.min.css" rel="stylesheet" />
 
     <link href="styles/main.css" rel="stylesheet" />
     <link href="styles/normalize.css" rel="stylesheet"/>
@@ -26,68 +26,9 @@
     <script src="scripts/registered.js"></script>
 </head>
 
-<body>
-    <!-- Home View -->
-    <div id="home"
-        data-role="view"
-        data-title="Check-In"
-        data-layout="home-layout"
-        data-show="app.home.onShow"
-        data-hide="app.home.onHide"
-        data-stretch="true">
-
-        <div id="check-in">
-            <img src="img/ulf.jpg" />
-            <label for="cust-num">Customer Number:</label>
-            <input id="cust-num"/>
-            <button id="cust-num-btn">Enter</button>
-            <a href="#search"><button>Search by company name</button></a>
-        </div>
-    </div>
-
-    <!-- Search View -->
-    <div id="search"
-        data-role="view"
-        data-title="Search"
-        data-show="app.search.onShow"
-        data-hide="app.search.onHide">
-
-        <div id="container">
-            <input id="name-autocomplete"/>
-            <button type="button" id="name-button">Enter</button>
-        </div>
-    </div>
-
-    <!-- Customer Info View-->
-    <div id="cust-info"
-        data-role="view"
-        data-title="Customer Info"
-        data-show="app.custInfo.onShow">
-
-        <div id="info">
-            <h3>Customer Info</h3>
-            <div id="cust-info">
-                <div id="listView"></div>
-            </div>
-            <a href="#registered"><button class="u-full-width">Check-In</button></a>
-        </div>
-    </div>
-
-    <!-- Registered -->
-    <div id="registered"
-        data-role="view"
-        data-title="Registered"
-        data-show="app.registered.onShow"
-        data-hide="app.registered.onHide"
-        data-stretch="true">
-
-        <div id="registered">
-            <h2>Customer Registered</h2>
-            <button type="button" id="ok-button">OK</button>
-            <button>Print</button>
-        </div>
-
-    </div>
+<body id="body">
+    
+    <div data-role="view"></div>
 
     <!--Original/Default Layout-->
     <div data-role="layout" data-id="views-layout">
@@ -102,10 +43,10 @@
         <!--Footer-->
         <div data-role="footer">
             <div data-role="tabstrip">
-                <a href="#/" data-icon="home">Home</a>
-                <a href="#search" data-icon="search">Search</a>
-                <a href="#cust-info" data-icon="info">Customer Info</a>
-                <a href="#registered" data-icon="action">Registered</a>
+                <a href="views/home.html" data-icon="home">Home</a>
+                <a href="views/search.html" data-icon="search">Search</a>
+                <a href="views/cust-info.html" data-icon="info">Customer Info</a>
+                <a href="views/registered.html" data-icon="action">Registered</a>
             </div>
         </div>
     </div>
@@ -123,10 +64,10 @@
         <!--Footer-->
         <div data-role="footer">
             <div data-role="tabstrip">
-                <a href="#/" data-icon="home">Home</a>
-                <a href="#search" data-icon="search">Search</a>
-                <a href="#cust-info" data-icon="info">Customer Info</a>
-                <a href="#registered" data-icon="action">Registered</a>
+                <a href="views/home.html" data-icon="home">Home</a>
+                <a href="views/search.html" data-icon="search">Search</a>
+                <a href="views/cust-info.html" data-icon="info">Customer Info</a>
+                <a href="views/registered.html" data-icon="action">Registered</a>
             </div>
         </div>
     </div>
